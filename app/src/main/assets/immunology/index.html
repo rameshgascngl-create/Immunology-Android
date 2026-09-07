@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" data-theme="light" data-mode="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<meta name="theme-color" content="#0b3b66">
+<meta name="application-name" content="GASC Immunology Companion">
+<meta name="description" content="Offline bilingual Immunology Learning Companion for M.Sc. Zoology: lessons, visual atlas, mechanism labs, cases, assessments, glossary, revision and progress.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; object-src 'none'; media-src 'self'; frame-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Immunology Learning Companion — Department of Zoology, GASC Nagercoil</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="appbar">
+ <div class="appbar-inner">
+  <div class="brand"><div class="logo" aria-hidden="true">IM</div><div><h1 id="brandTitle">Immunology Learning Companion</h1><small id="brandSub">M.Sc. Zoology · Units I–V · v2.11.0</small></div></div>
+  <div class="top-actions">
+   <div class="lang-group" aria-label="Language mode">
+    <button class="lang-btn" data-lang="en" aria-pressed="true">EN</button>
+    <button class="lang-btn" data-lang="ta" aria-pressed="false" lang="ta">தமிழ்</button>
+   </div>
+   <select id="jumpSelect" class="jump" aria-label="Jump to section"></select>
+   <button class="icon-btn" id="themeBtn" aria-label="Toggle light and dark theme">◐</button>
+   <button class="icon-btn" id="fontBtn" aria-label="Change text size">A+</button>
+  </div>
+ </div>
+</header>
+
+<div class="shell">
+ <aside class="sidebar" aria-label="Main navigation"><nav class="nav" id="sideNav"></nav></aside>
+ <main class="main" id="main" tabindex="-1">
+  <section class="view active" id="view-home"></section>
+  <section class="view" id="view-learn"></section>
+  <section class="view" id="view-atlas"></section>
+  <section class="view" id="view-labs"></section>
+  <section class="view" id="view-sim"></section>
+  <section class="view" id="view-compare"></section>
+  <section class="view" id="view-practice"></section>
+  <section class="view" id="view-cases"></section>
+  <section class="view" id="view-flash"></section>
+  <section class="view" id="view-glossary"></section>
+  <section class="view" id="view-revision"></section>
+  <section class="view" id="view-search"></section>
+  <section class="view" id="view-progress"></section>
+  <section class="view" id="view-help"></section>
+  <footer class="footer" id="siteFooter">
+   <p><strong>Maintained by the Department of Zoology, Government Arts and Science College, Nagercoil, Tamil Nadu.</strong></p>
+   <p>Offline educational resource packaged for this Android app. No analytics, embedded credentials, external libraries or background network activity.</p>
+   <div class="footer-links">
+    <a href="#help" data-nav="help">Help</a>
+    <a href="#help" data-nav="help">Privacy &amp; Local Data</a>
+   </div>
+   <p class="compiled-credit">Compiled by: Ramesh</p>
+  </footer>
+ </main>
+</div>
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="live" class="skip" aria-live="polite"></div>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>

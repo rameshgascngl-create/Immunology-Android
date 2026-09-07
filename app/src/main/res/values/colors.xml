@@ -1,0 +1,8 @@
+<resources>
+    <!-- Matches the CSS custom properties for primary colour and page
+         background in the web app's light theme, so the native window
+         background doesn't flash a mismatched colour during WebView
+         cold start. -->
+    <color name="app_primary">#083b66</color>
+    <color name="app_background">#f4f8fc</color>
+</resources>

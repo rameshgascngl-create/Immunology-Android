@@ -1,0 +1,7 @@
+<resources>
+    <!-- Matches the CSS custom properties for primary colour and page
+         background in the web app's dark theme (the data-theme="dark"
+         block in css/style.css). -->
+    <color name="app_primary">#0a2338</color>
+    <color name="app_background">#07131f</color>
+</resources>

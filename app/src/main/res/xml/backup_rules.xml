@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The only on-device data this app writes is the WebView's localStorage
+  (student progress, bookmarks, notes, quiz history) — no other app data
+  exists. Auto-backup is left on so that's preserved across device
+  restores; nothing here needs excluding.
+-->
+<full-backup-content>
+</full-backup-content>
