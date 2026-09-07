@@ -1,51 +1,46 @@
 # Immunology Companion — Android wrapper
 
-A minimal WebViewAssetLoader-based wrapper around the Immunology Companion
-web app, matching the pattern used in the Environmental Sciences Android app
-(minSdk 24 / targetSdk 36, `androidx.webkit`).
+Offline WebView wrapper for the GASC Nagercoil Immunology Learning Companion
+(M.Sc. Zoology, Units I–V, v2.11.0).
 
-## What's in here
+**Repository:** https://github.com/rameshgascngl-create/Immunology-Android
+
+Package: `edu.gascnagercoil.immunology`  
+minSdk 24 / targetSdk 36 / AndroidX WebKit (`WebViewAssetLoader`)
+
+## Open in Android Studio
+
+1. Clone this repo (or unzip `ImmunologyAndroid.zip` and open that folder).
+2. Android Studio → Open → this project root.
+3. Accept the prompt to generate the missing Gradle wrapper JAR (`gradle-wrapper.properties` already points at Gradle 8.7).
+4. Sync / Make Project. First sync downloads AGP 8.5.2, Kotlin 1.9.24, and AndroidX.
+
+## One file still to drop in
+
+`app/src/main/assets/immunology/js/app.js` is the bilingual course engine + dataset (~600 KB). Copy it from the attached `ImmunologyAndroid.zip` into that path before you run the app:
 
 ```
-ImmunologyAndroid/
-├── app/
-│   ├── build.gradle.kts
-│   └── src/main/
-│       ├── AndroidManifest.xml
-│       ├── java/edu/gascnagercoil/immunology/MainActivity.kt
-│       ├── assets/immunology/        ← the web app (index.html, css/, js/)
-│       └── res/                      ← icon, layout, strings, themes
-├── build.gradle.kts
-├── settings.gradle.kts
-├── gradle.properties
-└── gradle/wrapper/gradle-wrapper.properties
+app/src/main/assets/immunology/js/app.js
 ```
 
-`applicationId` is `edu.gascnagercoil.immunology`, following the same
-`edu.gascnagercoil.*` pattern as your Environmental Sciences package.
-Change it in `app/build.gradle.kts` before you build if you want something
-different.
+On GitHub: **Add file → Upload files** and drop `app.js` into `app/src/main/assets/immunology/js/`.
 
-## Opening it
-
-1. Android Studio → Open → select the `ImmunologyAndroid` folder (this repository root).
-2. Let it sync. **The Gradle wrapper jar itself isn't included** — only `gradle-wrapper.properties` is included and points at Gradle 8.7. Android Studio detects the missing jar on first open and offers to regenerate it automatically; accept that prompt, or run `gradle wrapper` once yourself if you have a system Gradle install.
-3. Build → Make Project. First sync will download AGP 8.5.2 / Kotlin 1.9.24 / the AndroidX and Material dependencies listed in `app/build.gradle.kts` — needs an internet connection for that step even though the app itself is fully offline at runtime.
+Adaptive launcher icons (XML) are already in the repo. Density-specific PNG fallbacks are optional.
 
 ## Design choices
 
-- **No `INTERNET` permission declared.** The app has no network calls.
-- **`allowFileAccess = false`** in WebView settings — content is served through `https://appassets.androidplatform.net/`.
-- **Back button** delegates to `webView.goBack()` first, then exits the Activity.
-- Status bar / nav bar colours match the web app theme to avoid a colour flash.
-- Icon is a placeholder: navy background, teal ring, "IM" monogram.
+- No `INTERNET` permission — the app is fully offline.
+- WebView loads `https://appassets.androidplatform.net/assets/immunology/index.html` so the page CSP `'self'` works.
+- `domStorageEnabled = true` so progress, bookmarks, notes and quiz history persist.
+- Back button uses WebView history first, then leaves the Activity.
+- Status / nav bar colours match the web theme to avoid a flash on cold start.
 
 ## Next steps
 
-1. Open in Android Studio, resolve the Gradle wrapper prompt, sync, build.
+1. Add `app.js`, generate the Gradle wrapper, build.
 2. Run on an emulator or device.
-3. Confirm `localStorage` persistence survives a real app restart.
-4. Check Atlas-tab scroll performance on a low-memory device.
-5. Replace the placeholder launcher icon before a Play Store release.
+3. Kill the app from Recents and confirm localStorage still holds progress.
+4. Check Atlas-tab scroll performance on a low-memory phone.
+5. Replace the placeholder IM monogram icon before a Play Store listing.
 
 Maintained for the Department of Zoology, Government Arts and Science College, Nagercoil.
