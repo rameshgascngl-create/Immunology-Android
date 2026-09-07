@@ -11,8 +11,8 @@ android {
         applicationId = "edu.gascnagercoil.immunology"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "2.11.0" // keep in step with APP_VERSION in js/app.js
+        versionCode = 2
+        versionName = "2.13.0" // keep in step with APP_VERSION in js/app-engine.js
 
         vectorDrawables.useSupportLibrary = true
     }
